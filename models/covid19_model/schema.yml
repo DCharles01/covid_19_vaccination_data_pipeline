@@ -1,0 +1,17 @@
+
+version: 2
+
+models:
+  - name: covid19
+    description: "A model for covid 19 vaccination rates"
+    database: covid19_master
+    schema: covid19_data
+    tables:
+      -  name: covid19_vaccination_data
+         description: 'Details about vaccination data'
+         columns:
+          - name: date
+            description: "Vaccination report date"
+            tests:
+              - not_null
+    
