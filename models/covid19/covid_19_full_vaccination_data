@@ -1,0 +1,18 @@
+with covid19_vacc_model as (
+    select * from {{ref(covid19, covid19_vaccination_data)}}
+),
+
+-- grab zip code information
+zip_code_information as (
+    select * from ref('nyc_zip_code_information')
+),
+
+final as (
+    select *
+    from covid19_vacc_model
+    left join zip_code_information
+        on covid19_vacc_model.zipcode=zip_code_information.zip_code
+)
+
+
+select * from final

@@ -1,7 +1,7 @@
 
 version: 2
 
-models:
+sources:
   - name: covid19
     description: "A model for covid 19 vaccination rates"
     database: covid19_master
@@ -12,6 +12,10 @@ models:
          columns:
           - name: date
             description: "Vaccination report date"
+            tests:
+              - not_null
+          - name: zipcode
+            description: "Zip code information"
             tests:
               - not_null
     
